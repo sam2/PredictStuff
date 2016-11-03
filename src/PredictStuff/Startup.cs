@@ -54,6 +54,8 @@ namespace PredictStuff
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
             services.AddScoped<NhlStatsService>();
+            services.AddSingleton<PollService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +85,7 @@ namespace PredictStuff
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Vote}/{action=Index}/{id?}");
             });
         }
     }

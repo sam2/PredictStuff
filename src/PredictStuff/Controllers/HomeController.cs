@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NHLStatsModel;
 using PredictStuff.Services;
+using PredictStuff.ViewModels;
+using PredictStuff.Models.VoteModel;
 
 namespace PredictStuff.Controllers
 {
@@ -19,7 +21,7 @@ namespace PredictStuff.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //List<NHLBoxScore> scores = await m_stats.GetBoxScores();
+            
             return View();
         }
 

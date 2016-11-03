@@ -1,0 +1,36 @@
+@model IEnumerable<PredictStuff.Models.VoteModel.Poll>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="left">
+                    <input type="submit" value="Vote" onclick="location.href='@Url.Action("Vote", "Vote", new { id = item.Id, vote = 0 })'" />
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.options[0].count)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.options[0].name)
+                </td>
+                <td align="center">
+                    <b>vs</b>
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.options[1].name)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.options[1].count)
+                </td>
+                <td align="right">
+                    <input type="submit" value="Vote" onclick="location.href='@Url.Action("Vote", "Vote", new { id = item.Id, vote = 1 })'" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
